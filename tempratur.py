@@ -16,3 +16,19 @@ class Temperature:
 
         self._value = float(value)
         self._unit = unit
+
+
+@property
+def value(self) -> float_
+"""Return the temperature value"""
+    return self._value
+
+@property
+def unit(self) -> str:
+    """Return the temperature unit."""
+    return self._unit
+
+
+    
+
+
