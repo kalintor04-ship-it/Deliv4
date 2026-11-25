@@ -35,3 +35,27 @@ def test_invalid_denominator():
     """Test that the denominator must be an integer."""
     with pytest.raises(TypeError):
         Fraction(1, 2.5)
+
+# 3. Comparisons
+
+def test_equality():
+    """Test equality between equivalent fractions."""
+    assert Fraction(1, 2) == Fraction(2, 4)
+
+
+def test_less_than():
+    """Test ordering of fractions."""
+    assert Fraction(1, 4) < Fraction(1, 2)
+
+
+# 4. Formatting
+
+def test_str():
+    """Test the string representation."""
+    assert str(Fraction(3, 4)) == "3/4"
+
+
+def test_repr():
+    """Test the object representation."""
+    assert repr(Fraction(3, 4)) == "Fraction(3, 4)"
+
