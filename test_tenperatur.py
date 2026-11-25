@@ -1,5 +1,5 @@
 
-from temperature import Temperature
+from Temperature import Temperature
 
 temp1 = Temperature(25, "C")
 temp2 = temp1.convert_to("F")
