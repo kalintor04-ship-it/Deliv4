@@ -107,6 +107,46 @@ class Temperature:
         )
 
         
+    def __ne__(self, other: object) -> bool:
+        """Check if two temperatures are different."""
+        if not isinstance(other, Temperature):
+            return NotImplemented
+
+        return not (self == other)
+    
+    def __lt__(self, other: object) -> bool:
+        """Check if this temperature is lower."""
+        if not isinstance(other, Temperature):
+            return NotImplemented
+
+        return (
+            self.to_kelvin() < other.to_kelvin()
+            and not (self == other)
+        )
+    
+    def __le__(self, other: object) -> bool:
+        """Check if this temperature is lower or equal."""
+        if not isinstance(other, Temperature):
+            return NotImplemented
+
+        return self < other or self == other
+
+    def __gt__(self, other: object) -> bool:
+        """Check if this temperature is higher."""
+        if not isinstance(other, Temperature):
+            return NotImplemented
+
+        return other < self
+    
+    def __ge__(self, other: object) -> bool:
+        """Check if this temperature is higher or equal."""
+        if not isinstance(other, Temperature):
+            return NotImplemented
+
+        return other < self or self == other
+
+
+
 
 
 
