@@ -59,3 +59,41 @@ def test_repr():
     """Test the object representation."""
     assert repr(Fraction(3, 4)) == "Fraction(3, 4)"
 
+
+# 5. Additional comparisons
+
+def test_not_equal():
+    """Test inequality between fractions."""
+    assert Fraction(1, 2) != Fraction(3, 4)
+
+
+def test_less_than_or_equal():
+    """Test smaller than or equal."""
+    assert Fraction(1, 4) <= Fraction(1, 2)
+    assert Fraction(1, 2) <= Fraction(2, 4)
+
+
+def test_greater_than():
+    """Test greater than."""
+    assert Fraction(3, 4) > Fraction(1, 2)
+
+
+def test_greater_than_or_equal():
+    """Test greater than or equal."""
+    assert Fraction(3, 4) >= Fraction(1, 2)
+    assert Fraction(1, 2) >= Fraction(2, 4)
+
+
+# 6. Additional special methods
+
+def test_addition():
+    """Test addition of two fractions."""
+    result = Fraction(1, 2) + Fraction(1, 4)
+
+    assert result == Fraction(3, 4)
+
+
+def test_float():
+    """Test conversion to a floating-point number."""
+    assert float(Fraction(3, 4)) == pytest.approx(0.75)
+
