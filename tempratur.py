@@ -1,6 +1,8 @@
+import math
 
 class Temperature:
     """Represent a temperature in Celsius, Fahrenheit or Kelvin."""
+    TOLERANCE = 1e-9
 
     def __init__(self, value: float, unit: str = "C") -> None:
         """Initialize a temperature with a value and unit."""
@@ -90,6 +92,23 @@ class Temperature:
     def __repr__(self) -> str:
         """Return an unambiguous representation."""
         return f"Temperature({self._value}, '{self._unit}')"
+
+
+    def __eq__(self, other: object) -> bool:
+        """Check if two temperatures are equal."""
+        if not isinstance(other, Temperature):
+            return NotImplemented
+
+        return math.isclose(
+            self.to_kelvin(),
+            other.to_kelvin(),
+            rel_tol=0,
+            abs_tol=self.TOLERANCE
+        )
+
+        
+
+
 
     
 
