@@ -64,6 +64,34 @@ class Temperature:
         return (self._value - 32) * 5 / 9 + 273.15
 
 
+    def convert_to(self, target_unit: str) -> "Temperature":
+        """Convert to a new Temperature object."""
+        target_unit = target_unit.upper()
+
+        if target_unit == "C":
+            return Temperature(self.to_celsius(), "C")
+
+        if target_unit == "F":
+            return Temperature(self.to_fahrenheit(), "F")
+
+        if target_unit == "K":
+            return Temperature(self.to_kelvin(), "K")
+
+        raise ValueError("Invalid temperature unit")
+
+    def __str__(self) -> str:
+        """Return a human-readable temperature."""
+        if self._unit == "K":
+            return f"{self._value:.2f} K"
+
+        return f"{self._value:.2f} °{self._unit}"
+
+
+    def __repr__(self) -> str:
+        """Return an unambiguous representation."""
+        return f"Temperature({self._value}, '{self._unit}')"
+
+
 
 
     
